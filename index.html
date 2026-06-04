@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz: Colocando a Casa em Ordem</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header id="page-title" class="page-title">
+      <h1>Colocando a Casa em Ordem</h1>
+    </header>
+
+    <section id="start-screen" class="screen">
+      <div class="card intro">
+        <p class="lead">Um quiz rápido para jovens em transição — decisões, carreira e vida.</p>
+        <p class="sub">10 pontos por pergunta. Prepare-se para refletir!</p>
+        <button id="start-btn" class="btn primary">Começar Quiz</button>
+      </div>
+    </section>
+
+    <section id="feed-screen" class="screen hidden">
+      <header class="quiz-header"></header>
+
+      <div id="card-frame" class="card-frame">
+        <!-- card único será inserido aqui -->
+      </div>
+
+      <div class="score-area">
+        <div id="score">Pontuação: <span id="score-val">0</span></div>
+        <div id="progress">Questões respondidas: <span id="answered-count">0</span>/<span id="total-count">10</span></div>
+      </div>
+
+      <!-- footer actions removed as requested -->
+    </section>
+
+    <section id="result-screen" class="screen hidden">
+      <div class="card result">
+        <h2>Resultado Final</h2>
+        
+        <div class="score-display">
+          <div class="score-circle" id="score-circle">
+            <svg viewBox="0 0 120 120" class="progress-ring">
+              <defs>
+                <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#7c5cff;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <circle cx="60" cy="60" r="54" class="progress-bg"/>
+              <circle cx="60" cy="60" r="54" class="progress-fill" id="progress-fill"/>
+            </svg>
+            <div class="score-text">
+              <div class="percentage" id="percentage">0%</div>
+              <div class="score-label">Seu Score</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="score-details">
+          <div class="detail-item">
+            <span class="detail-label">Pontos Obtidos:</span>
+            <span class="detail-value" id="final-score">0</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Pontos Possíveis:</span>
+            <span class="detail-value" id="max-score">100</span>
+          </div>
+        </div>
+        
+        <p id="result-msg" class="lead"></p>
+        <div class="result-actions">
+          <button id="restart-btn" class="btn">Refazer</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
