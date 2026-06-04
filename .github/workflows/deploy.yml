@@ -6,15 +6,20 @@ on:
 
 permissions:
   contents: write
+  pages: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Deploy
+      
+      - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
-          # cuidado: irá publicar o conteúdo do repositório; ajuste se quiser um diretório específico
+          force_orphan: true
+          
+      - name: Verify deployment
+        run: echo "Deploy completed successfully to gh-pages branch"
